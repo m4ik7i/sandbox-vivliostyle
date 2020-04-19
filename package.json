@@ -1,0 +1,12 @@
+{
+  "name": "sandbox-vivliostyle",
+  "version": "0.1.0",
+  "scripts": {
+    "cli": "vivliostyle",
+    "build": "vivliostyle build --book -o build/output.pdf"
+  },
+  "private": true,
+  "devDependencies": {
+    "@vivliostyle/cli": "^2.0.0"
+  }
+}
