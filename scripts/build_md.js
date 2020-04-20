@@ -1,14 +1,15 @@
 const shell = require('shelljs');
-const fs = require('fs').promises;
 const { spawn } = require('child-process-promise');
+const fs = require('fs').promises;
 const marked = require('marked');
+const hljs = require('highlight.js');
 const Mustache = require('mustache');
 
 const source = process.argv[2];
 
 if (!source) {
   console.error(new Error('source markdown file is not defined'));
-  process.exit(1);
+  shell.exit(1);
 }
 
 shell.mkdir('-p', 'build');
@@ -20,7 +21,6 @@ shell.mkdir('-p', 'build');
     const htmlBody = marked(markdown, {
       renderer: new marked.Renderer(),
       highlight: (code, language) => {
-        const hljs = require('highlight.js');
         const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
         return hljs.highlight(validLanguage, code).value;
       },
@@ -49,12 +49,12 @@ shell.mkdir('-p', 'build');
         'build/output.html',
       ]);
       promise.childProcess.stdout.on('data', (data) => {
-        process.stdout.write(String(data));
+        shell.echo('-n', String(data));
       });
       return promise;
     })();
   } catch (err) {
     console.error(err);
-    process.exit(err.code);
+    shell.exit(err.code);
   }
 })();
