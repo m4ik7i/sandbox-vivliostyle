@@ -4,7 +4,8 @@
   "scripts": {
     "cli": "vivliostyle",
     "build:html": "node scripts/build_html.js",
-    "build:md": "node scripts/build_md.js"
+    "build:md": "node scripts/build_md.js",
+    "build:pandoc": "node scripts/build_pandoc.js"
   },
   "private": true,
   "devDependencies": {
@@ -12,6 +13,7 @@
     "child-process-promise": "^2.2.1",
     "highlight.js": "^9.18.1",
     "marked": "^0.8.2",
-    "mustache": "^4.0.1"
+    "mustache": "^4.0.1",
+    "shelljs": "^0.8.3"
   }
 }
