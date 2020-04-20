@@ -6,11 +6,14 @@
     "clean": "shx rm -rf build",
     "build:html": "node scripts/build_html.js",
     "build:md": "node scripts/build_md.js",
+    "build:rst": "node scripts/build_pandoc.js",
+    "build:adoc": "node scripts/build_adoc.js",
     "build:pandoc": "node scripts/build_pandoc.js"
   },
   "private": true,
   "devDependencies": {
     "@vivliostyle/cli": "^2.0.0",
+    "asciidoctor": "^2.1.1",
     "child-process-promise": "^2.2.1",
     "highlight.js": "^9.18.1",
     "marked": "^0.8.2",
