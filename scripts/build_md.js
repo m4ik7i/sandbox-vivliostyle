@@ -15,6 +15,12 @@ if (!source) {
     const markdown = String(await fs.readFile(source));
 
     const htmlBody = marked(markdown, {
+      renderer: new marked.Renderer(),
+      highlight: (code, language) => {
+        const hljs = require('highlight.js');
+        const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+        return hljs.highlight(validLanguage, code).value;
+      },
       gfm: true,
       breaks: true,
       sanitize: false,
