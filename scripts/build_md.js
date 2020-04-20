@@ -37,7 +37,7 @@ if (!source) {
         'build/output.html',
       ]);
       promise.childProcess.stdout.on('data', (data) => {
-        process.stdout.write(data.toString());
+        process.stdout.write(String(data));
       });
       return promise;
     })();
