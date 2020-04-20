@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "cli": "vivliostyle",
+    "clean": "node scripts/clean.js",
     "build:html": "node scripts/build_html.js",
     "build:md": "node scripts/build_md.js",
     "build:pandoc": "node scripts/build_pandoc.js"
