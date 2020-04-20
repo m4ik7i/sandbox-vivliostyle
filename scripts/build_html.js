@@ -1,3 +1,4 @@
+const shell = require('shelljs');
 const { spawn } = require('child-process-promise');
 
 const source = process.argv[2];
@@ -6,6 +7,8 @@ if (!source) {
   console.error(new Error('source html file is not defined'));
   process.exit(1);
 }
+
+shell.mkdir('-p', 'build');
 
 (async () => {
   try {

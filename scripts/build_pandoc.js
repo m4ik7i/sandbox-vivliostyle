@@ -1,5 +1,5 @@
-const { spawn } = require('child-process-promise');
 const shell = require('shelljs');
+const { spawn } = require('child-process-promise');
 
 if (!shell.which('pandoc')) {
   console.error(new Error('pandoc has to be installed'));
@@ -12,6 +12,8 @@ if (!source) {
   console.error(new Error('source file is not defined'));
   process.exit(1);
 }
+
+shell.mkdir('-p', 'build');
 
 (async () => {
   try {

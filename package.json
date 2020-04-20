@@ -2,8 +2,8 @@
   "name": "sandbox-vivliostyle",
   "version": "0.1.0",
   "scripts": {
-    "cli": "vivliostyle",
-    "clean": "node scripts/clean.js",
+    "vivliostyle": "vivliostyle",
+    "clean": "shx rm -rf build",
     "build:html": "node scripts/build_html.js",
     "build:md": "node scripts/build_md.js",
     "build:pandoc": "node scripts/build_pandoc.js"
@@ -15,6 +15,7 @@
     "highlight.js": "^9.18.1",
     "marked": "^0.8.2",
     "mustache": "^4.0.1",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "shx": "^0.3.2"
   }
 }

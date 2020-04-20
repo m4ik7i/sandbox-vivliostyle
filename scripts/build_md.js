@@ -1,3 +1,4 @@
+const shell = require('shelljs');
 const fs = require('fs').promises;
 const { spawn } = require('child-process-promise');
 const marked = require('marked');
@@ -9,6 +10,8 @@ if (!source) {
   console.error(new Error('source markdown file is not defined'));
   process.exit(1);
 }
+
+shell.mkdir('-p', 'build');
 
 (async () => {
   try {
