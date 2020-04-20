@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "scripts": {
     "cli": "vivliostyle",
-    "build": "vivliostyle build --book -o build/output.pdf"
+    "build:html": "node scripts/build_html.js",
+    "build:md": "node scripts/build_md.js"
   },
   "private": true,
   "devDependencies": {
-    "@vivliostyle/cli": "^2.0.0"
+    "@vivliostyle/cli": "^2.0.0",
+    "child-process-promise": "^2.2.1",
+    "marked": "^0.8.2",
+    "mustache": "^4.0.1"
   }
 }
