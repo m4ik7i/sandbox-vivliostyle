@@ -26,9 +26,12 @@ if (!source) {
       sanitize: false,
     });
 
+    const style = String(await fs.readFile('node_modules/highlight.js/styles/github.css'));
+
     const template = String(await fs.readFile('src/template/template.mustache'));
 
     const html = Mustache.render(template, {
+      style,
       body: htmlBody,
     });
 
