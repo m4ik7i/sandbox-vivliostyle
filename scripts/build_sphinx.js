@@ -1,15 +1,15 @@
 const shell = require('shelljs');
 const { spawn } = require('child-process-promise');
 
-if (!shell.which('rst2html5.py')) {
-  console.error(new Error('docutils has to be installed'));
+if (!shell.which('sphinx-build')) {
+  console.error(new Error('sphinx has to be installed'));
   shell.exit(1);
 }
 
 const source = process.argv[2];
 
 if (!source) {
-  console.error(new Error('source restructuredtext file is not defined'));
+  console.error(new Error('source dir is not defined'));
   shell.exit(1);
 }
 
@@ -18,7 +18,7 @@ shell.mkdir('-p', 'build');
 (async () => {
   try {
     await (() => {
-      const promise = spawn('rst2html5.py', ['--stylesheet-path', 'minimal.css', source, 'build/output.html']);
+      const promise = spawn('sphinx-build', ['-b', 'singlehtml', source, 'build/sphinx']);
       promise.childProcess.stdout.on('data', (data) => {
         shell.echo('-n', String(data));
       });
@@ -30,7 +30,7 @@ shell.mkdir('-p', 'build');
         '--book',
         '--output',
         'build/output.pdf',
-        'build/output.html',
+        'build/sphinx/index.html',
       ]);
       promise.childProcess.stdout.on('data', (data) => {
         shell.echo('-n', String(data));

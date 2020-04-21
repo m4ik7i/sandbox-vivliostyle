@@ -8,7 +8,8 @@
     "build:md": "node scripts/build_md.js",
     "build:rst": "node scripts/build_rst.js",
     "build:adoc": "node scripts/build_adoc.js",
-    "build:pandoc": "node scripts/build_pandoc.js"
+    "build:pandoc": "node scripts/build_pandoc.js",
+    "build:sphinx": "node scripts/build_sphinx.js"
   },
   "private": true,
   "devDependencies": {
