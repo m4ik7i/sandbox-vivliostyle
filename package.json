@@ -16,7 +16,7 @@
     "@vivliostyle/cli": "^2.0.0",
     "asciidoctor": "^2.1.1",
     "child-process-promise": "^2.2.1",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.1.2",
     "marked": "^0.8.2",
     "mustache": "^4.0.1",
     "shelljs": "^0.8.3",
